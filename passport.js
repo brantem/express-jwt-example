@@ -60,8 +60,11 @@ passport.use('signInGoogle', new GoogleStrategy(passportConfig.googleOptions, as
         name: profile.displayName,
         email: profile.emails[0].value
       })
+
+      return done(null, newUser)
     }
-    console.log(profile)
+
+    return done(null, user)
   } catch (err) {
     done(err)
   }
@@ -77,8 +80,11 @@ passport.use('signInFacebook', new FacebookStrategy(passportConfig.facebookOptio
         name: profile.displayName,
         email: profile.emails[0].value
       })
+
+      return done(null, newUser)
     }
-    console.log(profile)
+
+    return done(null, user)
   } catch (err) {
     done(err)
   }
