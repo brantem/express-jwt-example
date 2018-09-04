@@ -18,7 +18,7 @@ exports.facebookOptions = {
 exports.localOptions = {
   usernameField: 'email',
   passwordField: 'password',
-  sesscion: false
+  session: false
 }
 
 exports.jwtOptions = {

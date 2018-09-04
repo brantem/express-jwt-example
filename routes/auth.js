@@ -10,10 +10,10 @@ router.post('/refresh_token', AuthController.refreshToken)
 
 // Google OAuth 2.0
 router.get('/google', passport.authenticate('signInGoogle', { scope: ['profile', 'email'] }))
-router.get('/google/callback', passport.authenticate('signInGoogle'))
+router.get('/google/callback', passport.authenticate('signInGoogle', { session: false }), AuthController.OAuthCallback)
 
 // Facebook OAuth 2.0
 router.get('/facebook', passport.authenticate('signInFacebook', { scope: ['email'] }))
-router.get('/facebook/callback', passport.authenticate('signInFacebook'))
+router.get('/facebook/callback', passport.authenticate('signInFacebook', { session: false }), AuthController.OAuthCallback)
 
 module.exports = router
