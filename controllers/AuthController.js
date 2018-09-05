@@ -56,7 +56,7 @@ exports.forgotPassword = async (req, res, next) => {
       html: `<a href="${currentUrl}?token=${token}">${currentUrl}?token=${token}</a>`,
     }
 
-    sendgrid.send(mail)
+    await sendgrid.send(mail)
 
     res.json({})
   } catch (err) {
